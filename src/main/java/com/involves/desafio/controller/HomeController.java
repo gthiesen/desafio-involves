@@ -64,7 +64,7 @@ public class HomeController {
 	public String atribuir(Model model)	{
 		lojaService.atribuirRepresentantes();
 		
-		return home(model);
+		return "redirect:/home";
 	}
 
 	

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,9 +29,11 @@ public class Representante extends DesafioEntity {
 	private Date dataRemocao; // Atributo de remoção lógica;
 	
 	@OneToMany(mappedBy="representante")
+	@OrderBy("nome ASC")
 	private List<Loja> lojas;
 	
 	@OneToMany(mappedBy="representante")
+	@OrderBy("distancia ASC")
 	private List<RepresentanteLoja> lojasProximas;
 	
 	public String getNome() {

@@ -1,6 +1,8 @@
 package com.involves.desafio.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -88,6 +90,8 @@ public class LojaService {
 	 */
 	private void atribuirRepresentanteUnicaOpcao()	{
 		
+		Map<Representante, Integer> contagemLojas = new HashMap<>(); 
+		
 		List<Loja> lojas = lojaRepository.findAll();
 		
 		_logger.info(" ");
@@ -109,16 +113,18 @@ public class LojaService {
 			if (loja.getRepresentantesProximos().size() == 1)	{
 				Representante representante = loja.getRepresentantesProximos().get(0).getRepresentante();
 				loja.setRepresentante(representante);
+				
+				if (contagemLojas.get(representante) == null)
+					contagemLojas.put(representante, 0);
+
+				contagemLojas.put(representante, contagemLojas.get(representante) +1);
+				
 				_logger.info("Loja: "+loja.getNome()+" | Atribuído para "+ representante.getNome() + " por ser o único da região");
 				continue; //Representante encontrado, segue o laço
 			}
 
-			lojaRepository.save(loja);
+			lojaRepository.saveAndFlush(loja);
 		}
-		
-	}
-	
-	private void atribuirRepresentanteMultiplaOpcao()	{
 		
 		_logger.info(" ");
 		_logger.info("==========================================================");
@@ -126,40 +132,49 @@ public class LojaService {
 		_logger.info("==========================================================");
 		_logger.info(" ");
 		
-		List<Loja> lojas = lojaRepository.findAll();
-
 		for (Loja loja : lojas) { //itera as lojas existentes
 			
 			if (loja.getRepresentantesProximos().size() < 2) continue;
-
+			
 			_logger.info("==========================================================");
 			_logger.info("Avaliando Loja ..." +loja.getNome());
 			
 			RepresentanteLoja selecionado = null;
 			for (RepresentanteLoja representanteLoja : loja.getRepresentantesProximos()) {
+				
+				if (contagemLojas.get(representanteLoja.getRepresentante()) == null)
+					contagemLojas.put(representanteLoja.getRepresentante(), 0);
+				
 				if (selecionado == null)	{
 					selecionado = representanteLoja;
 					_logger.info("Atribuído para "+ selecionado.getRepresentante().getNome());
 					continue;
 				}
-				if (representanteLoja.getRepresentante().getLojas().size() < selecionado.getRepresentante().getLojas().size())	{
+				
+				if (contagemLojas.get(representanteLoja.getRepresentante()) < contagemLojas.get(selecionado.getRepresentante()))	{
+					_logger.info("Atribuído de "+selecionado.getRepresentante().getNome()+" ( "+contagemLojas.get(representanteLoja.getRepresentante())+" Lojas ) para "+ representanteLoja.getRepresentante().getNome() + " ( "+contagemLojas.get(selecionado.getRepresentante())+" Lojas ) por ser o com menor numero de lojas.");
 					selecionado = representanteLoja;
-					_logger.info("Atribuído para "+ selecionado.getRepresentante().getNome() + " por ser o com menor numero de lojas.");
 					continue;
 				}
 				if (representanteLoja.getRepresentante().getLojas().size() == selecionado.getRepresentante().getLojas().size())	{
 					if (representanteLoja.getDistancia() < selecionado.getDistancia())	{
+						_logger.info("Atribuído de "+selecionado.getRepresentante().getNome()+" ( "+selecionado.getDistancia()+" Km ) para "+ representanteLoja.getRepresentante().getNome() + " ( "+representanteLoja.getDistancia()+" Km ) por ser mais próximo.");
 						selecionado = representanteLoja;
-						_logger.info("Atribuído para "+ selecionado.getRepresentante().getNome() + " por ser o com menor distância.");
+						continue;
 					}
-					continue;
 				}
 			}
 			
+			contagemLojas.put(selecionado.getRepresentante(), contagemLojas.get(selecionado.getRepresentante()) +1);
 			loja.setRepresentante(selecionado.getRepresentante());
 
-			lojaRepository.save(loja);
+			lojaRepository.saveAndFlush(loja);
 		}
+		
+	}
+	
+	private void atribuirRepresentanteMultiplaOpcao()	{
+		
 		
 	}
 
