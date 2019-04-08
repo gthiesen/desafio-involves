@@ -5,10 +5,6 @@
 	- JDK 1.8 or later
 	- Maven 3.2+
 	
-## Executar os testes
-
-	mvn test
-
 ## Executar a aplicação
 
     mvn spring-boot:run
@@ -27,13 +23,13 @@
 	
 ## Opções de Tecnologia
 
-	- Spring Boot (https://spring.io/projects/spring-boot)
-		- JQuery / Javascript
-		- Tiles (https://attic.apache.org/projects/tiles.html)
-		- Foundation (https://foundation.zurb.com/)
-	- Embedded HSQLDB
-	- Embedded Tomcat
-	- Liquibase (https://www.liquibase.org/)
+  - Spring Boot (https://spring.io/projects/spring-boot)
+    - JQuery / Javascript
+    - Tiles (https://attic.apache.org/projects/tiles.html)
+    - Foundation (https://foundation.zurb.com/)
+  - Embedded HSQLDB
+  - Embedded Tomcat
+  - Liquibase (https://www.liquibase.org/)
 
 ## Considerações
 
