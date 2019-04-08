@@ -1,0 +1,187 @@
+.body, .content{
+	margin: 0px 5px;
+	font-size: 14px;
+}
+
+body	{
+	font-size: 14px;
+}
+
+hr	{
+	margin: 5px 0px;
+}
+
+.button	{
+	margin:0;
+}
+
+.button.tiny.funcao	{
+	margin: 0px 1px;
+	font-size: 26px;
+	padding: 7px 5px;
+	width: 46px;
+	font-weight: bolder;
+}
+
+.button.tiny.icon	{
+	padding: 2px 6px;
+	font-size: 18px;
+	margin: 0px 1px;
+}
+
+ul.pagination li a	{
+	font-size: 11px;
+	font-weight: bold;
+	border: 1px solid #aaa;
+}
+
+ul.pagination 	{
+	margin-bottom: inherit;
+	line-height: inherit;
+}
+
+ul.pagination li	{
+	height: auto;
+	margin-left: auto;
+}
+
+a.alert	{
+	color: red;
+}
+
+tr.alert, td.alert	{
+	background-color: #ff6666;
+}
+
+tr.warn, td.warn	{
+	background-color: #ffff44;
+}
+
+fieldset	{
+	margin: 10px 0px;
+	padding: 10px;
+	margin-top: inherit;
+	border-radius: 4px;
+}
+
+
+
+fieldset label	{
+	display: inline;
+}
+
+.label	{
+	white-space: normal;
+	text-align: left;
+}
+
+fieldset legend	{
+	background-color: transparent;
+}
+
+fieldset.cabecalho	{
+	background-color: #eee;
+}
+
+.registro label	{
+	display: inline;
+}
+
+.registro	{
+	font-size: 14px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 4px;
+}
+
+.registro.disabled	{
+	background-color: #f1f1f1;
+}
+
+.registro .funcoes	{
+	text-align: right;
+	padding: 10px;
+}
+
+.registro .icon	{
+	font-size: 30px;
+	padding: 7px 5px;
+	width: 48px;
+	border-radius: 4px;
+}
+
+.pricing-table .icon	{
+	font-size: 30px;
+	padding: 7px 5px;
+	width: 48px;
+}
+
+.pricing-table .title	{
+	background-color: #eee;
+	color: #000;
+}
+
+.search.icon	{
+	font-size: 20px;
+	padding: 7px 5px;
+	width: 48px;
+}
+
+legend .button.tiny{
+	width: 3rem;
+	padding: 1px;
+	font-size: 18px;
+}
+
+.has-tip	{
+	font-weight: normal;
+	border-bottom: none;
+}
+
+.datepicker {
+	position: inherit;
+}
+
+.reveal-modal .close-reveal-modal	{
+	font-size: 24px;	
+}
+
+.panel	{
+	margin: 5px 0px;
+	border-radius: 4px;
+}
+
+.codigo	{
+	background-color: #e7e7e7;
+	padding: 5px 12px;;
+	border: 1px dashed #aaa;	
+}
+
+div.secao	{
+	border: 1px solid #d8d8d8;
+	border-top: 0px;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+div.titlesecao	{
+	padding: 10px;
+	border: 1px solid #d8d8d8;
+	background-color: #eee;
+	font-weight: bold;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+div.footersecao	{
+	padding: 5px;
+	border: 1px solid #d8d8d8;
+	margin-top: -12px;
+	background-color: #eee;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+

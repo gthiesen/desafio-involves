@@ -1,0 +1,40 @@
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+	   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+	   http://www.liquibase.org/xml/ns/dbchangelog 
+	   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet author="thiesen" id="1">
+		<createSequence sequenceName="seq_representante"/>
+		<createTable tableName="tbl_representante">
+			<column name="id" type="bigint"><constraints primaryKey="true"/></column>
+			<column name="nome" type="varchar(200)"></column>
+			<column name="longitude" type="double"></column>
+			<column name="latitude" type="double"></column>
+			<column name="data_remocao" type="date"></column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="thiesen" id="2">
+		<createSequence sequenceName="seq_loja"/>
+		<createTable tableName="tbl_loja">
+			<column name="id" type="bigint"><constraints primaryKey="true"/></column>
+			<column name="nome" type="varchar(200)"></column>
+			<column name="longitude" type="double"></column>
+			<column name="latitude" type="double"></column>
+			<column name="data_remocao" type="date"></column>
+			<column name="representante_id" type="bigint"><constraints referencedTableName="tbl_representante" referencedColumnNames="id" foreignKeyName="fk_representante_loja"/></column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="3" author="thiesen">
+		<createTable tableName="tbl_representante_loja">
+			<column name="loja_id" type="bigint"><constraints referencedTableName="tbl_loja" referencedColumnNames="id" foreignKeyName="fk_lr_loja"/></column>
+			<column name="representante_id" type="bigint"><constraints referencedTableName="tbl_representante" referencedColumnNames="id" foreignKeyName="fk_lr_representante"/></column>
+			<column name="distancia" type="double"></column>
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog>
