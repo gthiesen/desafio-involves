@@ -14,6 +14,7 @@
   - Acessar a aplicação em http://localhost:8080
   - Após a execução da aplicação, é só clicar no botão "Atribuir Representantes" na tela home. 
   - Sistema executará os cálculos para atribuição dos representantes para as lojas.
+  - Será possível ver as atribuições de Representantes > Lojas e de Lojas > Representantes.
 	
 ## Regras de Atribuição de Representantes
 
