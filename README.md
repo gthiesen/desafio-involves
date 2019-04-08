@@ -35,8 +35,8 @@
 ## Considerações
 
   - Temos testes unitários. execute eles com "mvn test"
-  - No caso de uma loja estar no raio de mais de um representante, a analise de número de lojas e distância atribui a loja ao representante mais adequado.
-  - Foram adicionados alguns logs como rastreamento de cálculo
-  - Temos algumas funcionalidades como edição das latitudes e longitudes, e alteração manual de atribuiçào caso seja de intresse.
+  - No caso de uma loja estar no raio de mais de um representante, a analise de número de lojas e a distância atribui a loja ao representante mais adequado.
+  - Foram adicionados alguns logs para rastreamento de cálculo de atribuição.
+  - Temos algumas funcionalidades como edição das latitudes e longitudes, e alteração manual de atribuiçào caso seja de interesse.
 
 
